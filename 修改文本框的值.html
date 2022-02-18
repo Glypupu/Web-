@@ -1,0 +1,101 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+	
+<style>
+	ul,li{margin: 0;padding: 0;}
+	li{list-style: none;}
+	span{margin: 10px;}
+	input{margin: 0;padding: 0;}
+	body{width: 200px; margin: 50px auto;}
+	div{width: 200px;height: 20px; background: #39AF3C;font-size: 12px;line-height: 20px;color: #fff;}
+	li{width: 200px;height: 30px;border-bottom:1px solid #A8CAD0;}
+	.tx{width: 100px;height: 30px;ont-size: 14px;line-height: 30px;border: none;background-color: transparent;color: #000; margin-left: 10px;}
+	.Text{outline: none;border: 0;}
+	.Btn{display: none;}
+	
+		
+</style>
+</head>
+	
+<script>
+window.onload =function (){
+	fnTab('lis1');
+	fnTab('lis2');
+}
+ 
+function fnTab(id){
+
+	var oUl = document.getElementById('list');
+	var oLi = document.getElementById(id);
+	var oText = oLi.getElementsByClassName('tx')[0];
+	var oImg = oLi.getElementsByClassName('img')[0];
+	var aBtn = oLi.getElementsByClassName('Btn');
+	
+	function fn1(Imgdis,Btndis,disa){
+		oImg.style.display = Imgdis;	
+		for(var i=0;i<aBtn.length;i++){
+			aBtn[i].style.display = Btndis;
+		}
+		oText.disabled = disa;
+	}
+	
+	oImg.onclick = function (){
+		fn1('none','inline-block','');
+	}
+	
+	var a = oText.value;
+	aBtn[0].onclick = function fn2(){	
+		a = oText.value;	
+		fn1('inline-block','none','disabled');
+	}
+	
+	aBtn[1].onclick = function fn3(){
+		oText.value = a;
+		fn1('inline-block','none','disabled');
+	}
+
+}
+
+	
+</script>	
+	
+	
+<body>
+<div id="top">
+	<span id="Tspan">分类名称</span>
+</div>
+<ul id="list">
+	<li id="lis1">
+		<!-- <input type="text" class="Text" value="妙味远程课堂"></input> -->
+		<input type="text" class="tx" disabled value="河流是猪"></input>
+		<input type="image" class="img" src="ico1.gif">
+		<input type="button" class="Btn" value="保存"></input>
+		<input type="button" class="Btn" value="取消"></input>
+		<!--<a class="A2" name="A2" href="#">保存</a>
+		<a class="A2" name="A2" href="#">取消</a>  -->
+	</li>
+	<li id="lis2">
+		<!--<input type="text" class="Text" value="妙味远程课堂"></input> -->
+		<input type="text" class="tx" disabled="disabled" value="嘻嘻嘻嘻"></input>
+		<input type="image" class="img" src="ico1.gif">
+		<input type="button" class="Btn" value="保存"></input>
+		<input type="button" class="Btn" value="取消"></input>
+	</li>	
+</ul>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
